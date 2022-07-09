@@ -9,6 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ProjetCaisseApplicationTests {
     @Test
     void contextLoads() {
-        throw new UnsupportedOperationException();
+
     }
 }
