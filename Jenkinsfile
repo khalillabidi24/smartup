@@ -18,11 +18,30 @@ stages{
              }
          }
           
-stage("Test,Build"){
-          steps{
-          bat """mvn clean package -Dmaven.test.failure.ignore=true"""
-          }
-          }
+stage ("Verification du  version Maven..."){
+			steps{
+				bat """mvn -version"""
+			}
+		}
+
+		stage ("Clean..."){
+			steps{
+				bat """mvn clean"""
+			}
+			
+		}
+
+		stage ("Creation du livrable..."){
+			steps{
+				bat """mvn package -Dmaven.test.skip=true"""
+			}
+		}
+
+		stage ("Lancement des Tests Unitaires..."){
+			steps{
+				bat """mvn test"""
+			}
+		}
           
           stage("Sonar"){
           steps{
