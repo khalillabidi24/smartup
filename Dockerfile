@@ -1,4 +1,4 @@
-FROM openjdk:11-jdk
+FROM openjdk:jdk-11.0.15.1
 ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \JAVA_OPTS=""
 WORKDIR /app
 ADD target/*.jar app.jar
