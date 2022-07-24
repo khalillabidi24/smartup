@@ -80,7 +80,13 @@ stage ("Verification du  version Maven..."){
     }
   }
     
-       
+       stage('Email Notification') {
+	steps { 
+	    mail bcc: '', body: '''Hello Khalil LAABIDI , this is a Jenkins Pipeline alert for launching Cycle
+
+            Thank you''', cc: '', from: '', replyTo: '', subject: 'Jenking Job Launched', to: 'khalil.laabidi@esprit.tn'
+    }
+}
         
        
           
