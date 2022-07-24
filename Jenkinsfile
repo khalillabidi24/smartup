@@ -1,7 +1,7 @@
 pipeline {
        environment
 {
-registry = "khalillaabidi/khalillaabidi"
+registry = "khalillaabidii/khalillaabidii"
 registryCredential= 'dockerHub'
 dockerImage = ''
 }
@@ -18,6 +18,22 @@ stages{
              }
          }
 	
+	
+          
+stage ("Verification du  version Maven..."){
+			steps{
+				bat """mvn -version"""
+			}
+		}
+
+		stage ("Clean..."){
+			steps{
+				bat """mvn clean"""
+			}
+			
+		}
+
+		
 	stage('Building our image') {
     steps {
        script {
@@ -41,22 +57,6 @@ stages{
       bat "docker rmi $registry:$BUILD_NUMBER" 
     }
   }
-          
-stage ("Verification du  version Maven..."){
-			steps{
-				bat """mvn -version"""
-			}
-		}
-
-		stage ("Clean..."){
-			steps{
-				bat """mvn clean"""
-			}
-			
-		}
-
-		
-	
 	
 	
 	
